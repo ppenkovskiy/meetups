@@ -4,16 +4,9 @@ from .models import Meetup
 
 def index(request):
     meetups = Meetup.objects.all()
-    try:
-
-        return render(request, 'meetups/index.html', {
-            'meetups_found': True,
-            'meetups': meetups
-        })
-    except Exception as exc:
-        return render(request, 'meetups/index.html', {
-            'meetup_found': False,
-        })
+    return render(request, 'meetups/index.html', {
+        'meetups_found': True,
+        'meetups': meetups})
 
 
 def meetup_details(request, meetup_slug):
