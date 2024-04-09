@@ -5,6 +5,7 @@ from .forms import RegistrationForm
 
 def index(request):
     meetups = Meetup.objects.all()
+
     return render(request, 'meetups/index.html', {
         'meetups_found': True,
         'meetups': meetups})
@@ -13,6 +14,7 @@ def index(request):
 def meetup_details(request, meetup_slug):
     try:
         selected_meetup = Meetup.objects.get(slug=meetup_slug)
+
         if request.method == 'GET':
             registration_form = RegistrationForm()
         else:
@@ -23,14 +25,14 @@ def meetup_details(request, meetup_slug):
                 selected_meetup.participants.add(participant)
                 return redirect('confirm-registration', meetup_slug=meetup_slug)
 
-
         return render(request, 'meetups/meetup-details.html', {
             'meetup_found': True,
             'meetup': selected_meetup,
             'form': registration_form,
         })
+
     except Exception as exc:
-        print(exc)
+
         return render(request, 'meetups/meetup-details.html', {
             'meetup_found': False,
         })
