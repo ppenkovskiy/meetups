@@ -1,7 +1,7 @@
 Project "MEETUPS" preview:
 https://drive.google.com/file/d/1Dknxil2GpMMrL_dW99R-gmgn1dlchI_M/view?usp=sharing
 
-Installing "Bookstore" project on Linux:
+Installing "MEETUPS" project on Linux:
 
 git clone git@github.com:ppenkovskiy/meetups_app.git
 
